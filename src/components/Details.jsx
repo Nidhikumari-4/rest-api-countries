@@ -9,9 +9,9 @@ const Details = () => {
 
   const { state } = useLocation();
   const navigate = useNavigate();
-  console.log(state);
 
   const goHomeBtn = () => navigate("/");
+  const HomeBtn = () => navigate("/");
 
   const toggleDarkMode = () => {
     if (mode) {
@@ -30,7 +30,12 @@ const Details = () => {
     <div className="bg-gray-100 dark:bg-gray-800 dark:text-white ">
       <div className="w-screen shadow-md py-6 px-3 bg-white dark:bg-gray-700 dark:text-white mb-16 ">
         <div className="flex container mx-auto ">
-          <h1 className="font-bold text-xl">Where in the world?</h1>
+          <h1
+            className="font-bold text-xl cursor-pointer"
+            onClick={() => HomeBtn()}
+          >
+            Where in the world?
+          </h1>
           <div className="ml-auto font-medium">
             <button
               onClick={() => toggleDarkMode()}
@@ -47,13 +52,13 @@ const Details = () => {
           <i className="fa fa-arrow-left"></i> Back
         </button>
       </div>
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row justify-center items-center space-x-28">
         <img
           src={state.state.flags.png}
           className="w-1/3 flex justify-center items-center "
           alt={state.state.name.common}
         />
-        <div className="  justify-center items-center pl-8 pt-8 ">
+        <div className="  justify-center items-center pl-8 pt-4 ">
           <h2 className="font-bold text-2xl mb-8">{state.state.name.common}</h2>
           <div className="grid grid-cols-2 gap-x-20 gap-y-4">
             <p>
@@ -89,21 +94,10 @@ const Details = () => {
             <p>
               Top Level Domain:{" "}
               <span className="dark:text-gray-400 text-gray-700 text-sm">
-                {state.state.tld[0]}
+                {state.state.tld}
               </span>
             </p>
-            <p>
-              Currencies:{" "}
-              {/* {Object.keys(state.state.currencies).map((name) => (
-              <span
-                className="dark:text-gray-400 text-gray-700 text-sm"
-                key={name}
-              >
-                {state.state.currencies.name[name]}
-                {","}
-              </span>
-            ))} */}
-            </p>
+            <p>Currencies: </p>
             <p>
               Languages:{" "}
               {Object.keys(state.state.languages).map((language) => (

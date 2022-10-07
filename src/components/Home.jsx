@@ -48,9 +48,9 @@ const Home = () => {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-800 dark:text-white ">
-      <div className="w-screen shadow-md py-6 px-3 bg-white dark:bg-gray-700 dark:text-white mb-16 ">
+      <div className=" shadow-md py-6 px-6 bg-white dark:bg-gray-700 dark:text-white mb-16 ">
         <div className="flex container mx-auto ">
-          <h1 className="font-bold text-xl onClick={() => goHomeBtn()">
+          <h1 className="font-bold text-xl cursor-pointer">
             Where in the world?
           </h1>
           <div className="ml-auto font-medium">
@@ -81,7 +81,7 @@ const Home = () => {
           <option value="oceania">Oceania</option>
         </select>
       </div>
-      <div className="container grid grid-cols-4 gap-16 mx-auto ">
+      <div className="container grid grid-cols-4 gap-10 mx-auto ">
         {countries.map((country, index) => (
           <Link to={"/details"} state={{ state: country }} key={index}>
             <ThumbDetail
